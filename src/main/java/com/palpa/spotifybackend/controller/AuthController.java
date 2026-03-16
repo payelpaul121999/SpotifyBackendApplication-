@@ -26,7 +26,16 @@ public class AuthController {
         this.passwordEncoder = passwordEncoder;
         this.jwtUtil = jwtUtil;
     }
+    @PostMapping("/create-admin")
+    public User createAdmin(@RequestBody User user) {
 
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRole(Role.ADMIN);
+        user.setSubscriptionType(SubscriptionType.PAID);
+        user.setListeningTimeToday(0);
+
+        return userRepository.save(user);
+    }
     // SIGNUP
     @PostMapping("/signup")
     public User signup(@RequestBody User user) {
