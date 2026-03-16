@@ -40,7 +40,11 @@ public class TrackController {
         return trackService.getTracksByAlbum(albumId);
     }
     @PostMapping("/bulk")
-public List<Track> createTracks(@RequestBody List<CreateTrackRequest> requests) {
-    return trackService.createTracks(requests);
-}
+    public List<Track> createTracks(@RequestBody List<CreateTrackRequest> requests) {
+        return trackService.createTracks(requests);
+    }
+    @GetMapping("/play/{trackId}")
+    public Track playTrack(@PathVariable Long trackId){
+        return trackService.playTrack(trackId);
+    }
 }

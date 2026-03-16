@@ -52,4 +52,7 @@ public class PlaylistService {
     public List<Playlist> createPlaylists(List<Playlist> playlists) {
         return playlistRepository.saveAll(playlists);
     }
+    public List<Playlist> getAllPlaylists(){
+    return playlistRepository.findAll();
+}
 }

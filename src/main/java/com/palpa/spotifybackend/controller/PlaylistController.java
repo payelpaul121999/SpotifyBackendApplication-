@@ -41,4 +41,8 @@ public class PlaylistController {
     public List<Playlist> createPlaylists(@RequestBody List<Playlist> playlists) {
         return playlistService.createPlaylists(playlists);
     }
+    @GetMapping("/allplaylists")
+    public List<Playlist> getAllPlaylists(){
+        return playlistService.getAllPlaylists();
+    }
 }
